@@ -13,13 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-import {
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-  ComponentType,
-} from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import throttle from 'lodash/throttle';
 // @ts-ignore
 import RelativeTime from 'react-relative-time';
@@ -45,10 +39,7 @@ import { notificationsApiRef } from '../../api';
 import { SelectAll } from './SelectAll';
 import { BulkActions } from './BulkActions';
 import { NotificationIcon } from './NotificationIcon';
-import {
-  NotificationDescription,
-  NotificationDescriptionProps,
-} from './NotificationDescription';
+import { NotificationDescription } from './NotificationDescription';
 
 const ThrottleDelayMs = 1000;
 
@@ -80,7 +71,6 @@ export type NotificationsTableProps = Pick<
   onUpdate: () => void;
   setContainsText: (search: string) => void;
   pageSize: number;
-  notificationDescriptionComponent?: ComponentType<NotificationDescriptionProps>;
 };
 
 /** @public */
@@ -97,8 +87,6 @@ export const NotificationsTable = ({
   page,
   pageSize,
   totalCount,
-  notificationDescriptionComponent:
-    NotificationDescriptionComponent = NotificationDescription,
 }: NotificationsTableProps) => {
   const { t } = useTranslationRef(notificationsTranslationRef);
   const classes = useStyles();
@@ -254,7 +242,7 @@ export const NotificationsTable = ({
                     )}
                   </Typography>
                   {notification.payload.description ? (
-                    <NotificationDescriptionComponent
+                    <NotificationDescription
                       description={notification.payload.description}
                     />
                   ) : null}
@@ -335,7 +323,6 @@ export const NotificationsTable = ({
     classes.broadcastIcon,
     classes.notificationInfoRow,
     markAsReadOnLinkOpen,
-    NotificationDescriptionComponent,
   ]);
 
   return (
