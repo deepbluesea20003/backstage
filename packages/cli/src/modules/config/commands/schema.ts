@@ -28,7 +28,6 @@ export default async ({ args, info }: CommandContext) => {
   } = cli(
     {
       help: info,
-      booleanFlagNegation: true,
       flags: {
         package: { type: String, description: 'Package to print schema for' },
         format: { type: String, description: 'Output format (yaml or json)' },

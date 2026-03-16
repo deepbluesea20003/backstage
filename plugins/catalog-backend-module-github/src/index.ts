@@ -37,8 +37,6 @@ export {
   type GithubUser,
   type UserTransformer,
   defaultUserTransformer,
-  buildDefaultUserTransformer,
-  type DefaultUserTransformerOptions,
   type TeamTransformer,
   defaultOrganizationTeamTransformer,
   type TransformerContext,

@@ -42,7 +42,6 @@ export default async ({ args, info }: CommandContext) => {
   } = cli(
     {
       help: { ...info, usage: `${info.usage} [packages...]` },
-      booleanFlagNegation: true,
       parameters: ['[packages...]'],
       flags: {
         plugin: {

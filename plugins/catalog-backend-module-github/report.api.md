@@ -25,22 +25,16 @@ import { SchedulerService } from '@backstage/backend-plugin-api';
 import { SchedulerServiceTaskRunner } from '@backstage/backend-plugin-api';
 import { ScmIntegrationRegistry } from '@backstage/integration';
 import { ScmLocationAnalyzer } from '@backstage/plugin-catalog-node';
-
-// @public
-export function buildDefaultUserTransformer(
-  options?: DefaultUserTransformerOptions,
-): UserTransformer;
+import { UserEntity } from '@backstage/catalog-model';
 
 // @public
 export const defaultOrganizationTeamTransformer: TeamTransformer;
 
 // @public
-export const defaultUserTransformer: UserTransformer;
-
-// @public
-export interface DefaultUserTransformerOptions {
-  useVerifiedEmails?: boolean;
-}
+export const defaultUserTransformer: (
+  item: GithubUser,
+  _ctx: TransformerContext,
+) => Promise<UserEntity | undefined>;
 
 // @public
 const githubCatalogModule: BackendFeature;

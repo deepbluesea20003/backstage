@@ -38,7 +38,6 @@ export default async ({ args, info }: CommandContext) => {
   } = cli(
     {
       help: { ...info, usage: `${info.usage} <workspace-dir> [packages...]` },
-      booleanFlagNegation: true,
       parameters: ['<workspace-dir>', '[packages...]'],
       flags: {
         alwaysPack: {

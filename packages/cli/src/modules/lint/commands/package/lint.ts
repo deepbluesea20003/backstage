@@ -27,7 +27,6 @@ export default async ({ args, info }: CommandContext) => {
   } = cli(
     {
       help: { ...info, usage: `${info.usage} [directories...]` },
-      booleanFlagNegation: true,
       parameters: ['[directories...]'],
       flags: {
         fix: {

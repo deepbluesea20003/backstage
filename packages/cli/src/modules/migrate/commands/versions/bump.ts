@@ -80,7 +80,6 @@ export default async ({ args, info }: CommandContext) => {
   } = cli(
     {
       help: info,
-      booleanFlagNegation: true,
       flags: {
         pattern: {
           type: String,
